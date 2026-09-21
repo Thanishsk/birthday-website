@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love! ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #2d3436;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px 25px;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      color: #d63031;
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+    }
+    .subtitle {
+      color: #e84393;
+      font-size: 1.05rem;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .photo-container {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 20px;
+      position: relative;
+      background: #ff758c;
+      clip-path: path("M 90 160 C 20 100, 0 60, 40 20 C 70 -10, 90 20, 90 20 C 90 20, 110 -10, 140 20 C 180 60, 160 100, 90 160 Z");
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cake-box {
+      margin: 15px auto 25px;
+      width: 100px;
+      height: 80px;
+      position: relative;
+    }
+    .cake {
+      width: 100px;
+      height: 50px;
+      background: #fd79a8;
+      border-radius: 10px 10px 0 0;
+      position: absolute;
+      bottom: 0;
+      border-bottom: 6px solid #e84393;
+    }
+    .candle {
+      width: 10px;
+      height: 30px;
+      background: #ffeaa7;
+      position: absolute;
+      top: -10px;
+      left: 45px;
+      border-radius: 2px;
+    }
+    .flame {
+      width: 10px;
+      height: 15px;
+      background: #ff7675;
+      border-radius: 50% 50% 20% 20%;
+      position: absolute;
+      top: -12px;
+      box-shadow: 0 0 10px #ff7675;
+      animation: flicker 0.5s infinite alternate;
+    }
+    .flame.off { display: none; }
+
+    @keyframes flicker {
+      0% { transform: scale(1); opacity: 0.9; }
+      100% { transform: scale(1.2); opacity: 1; }
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background: linear-gradient(45deg, #d63031, #e84393);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      font-size: 0.9rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(232, 67, 147, 0.4);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(232, 67, 147, 0.6);
+    }
+
+    .video-box {
+      display: none;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .video-box iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+    }
+
+    .lyrics-box {
+      display: none;
+      background: #fff0f3;
+      padding: 18px;
+      border-radius: 15px;
+      border: 1px solid #ff758c;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #c0392b;
+      font-style: italic;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .letter-box {
+      display: none;
+      text-align: left;
+      background: #fff5f6;
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px dashed #e84393;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #2d3436;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Happy Birthday, My Queen! 👑</h1>
+    <p class="subtitle">To my beautiful wife & my forever love ❤️</p>
+
+    <div class="photo-container">
+      <img src="wife.svg" alt="My Wife">
+    </div>
+
+    <div class="cake-box">
+      <div class="candle">
+        <div class="flame" id="flame"></div>
+      </div>
+      <div class="cake"></div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn" onclick="blowCandle()">🕯️ Blow Candle</button>
+      <button class="btn" onclick="toggleVideo()">▶️ Play Song Video</button>
+      <button class="btn" onclick="toggleLyrics()">🎵 Song Lyrics</button>
+      <button class="btn" onclick="openLetter()">💌 Read Love Letter</button>
+    </div>
+
+    <div class="video-box" id="videoBox">
+      <iframe id="ytPlayer" src="" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="lyrics-box" id="lyricsBox">
+      <p>🎶 <strong>Kannaana Kanne</strong> 🎶</p>
+      <br>
+      <p>En viral idukkula un viral kidakkanum...</p>
+      <p>Nasungura alavukku idhukku naan pudikkanum...</p>
+      <p>Naan kanna thurakkaiyil un mugam theriyanum...</p>
+      <p>Usurulla varaikkume unakkenna pudikkanum...</p>
+      <br>
+      <p>Kaddala pola un kaal thottu urasi...</p>
+      <p>Kaddalulla polave naan illadi...</p>
+      <p>Kaddal manna pola un kaaloda otti...</p>
+      <p>Karai thaandum varala tha idhu peradi...</p>
+      <br>
+      <p>Kannana Kanne nee kalangadhadi...</p>
+      <p>En uyiroda avadhaaram needhanadi! ❤️</p>
+    </div>
+
+    <div class="letter-box" id="letter">
+      <p><strong>Dearest En Anbe,</strong></p><br>
+      <p>Unnodana indha vaazhkai dhaan yenakku kidaicha mikapperiya gift! Naan unkitta solvadhai vida unnai adhigaama nesikkiren.</p><br>
+      <p>Indha பிறந்தநாளில் unakku ellaa santhoshamum, arokkiyamum kidaikkanum nu pray panren. Thank you for making my life so beautiful and warm every single day.</p><br>
+      <p><strong>Forever Yours,</strong><br>❤️ Unga Purushan</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <script>
+    let candleBlown = false;
+
+    function blowCandle() {
+      const flame = document.getElementById('flame');
+
+      if (!candleBlown) {
+        flame.classList.add('off');
+        candleBlown = true;
+
+        confetti({
+          particleCount: 120,
+          spread: 80,
+          origin: { y: 0.6 },
+          colors: ['#ff758c', '#ff7eb3', '#d63031', '#ffffff']
+        });
+      }
+    }
+
+    function toggleVideo() {
+      const videoBox = document.getElementById('videoBox');
+      const player = document.getElementById('ytPlayer');
+
+      if (videoBox.style.display === "block") {
+        videoBox.style.display = "none";
+        player.src = "";
+      } else {
+        videoBox.style.display = "block";
+        player.src = "https://www.youtube.com/embed/hL8WWxuRO5s?autoplay=1";
+      }
+    }
+
+    function toggleLyrics() {
+      const lyrics = document.getElementById('lyricsBox');
+      lyrics.style.display = (lyrics.style.display === "block") ? "none" : "block";
+    }
+
+    function openLetter() {
+      const letter = document.getElementById('letter');
+      if (letter.style.display === "block") {
+        letter.style.display = "none";
+      } else {
+        letter.style.display = "block";
+        confetti({
+          particleCount: 40,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 40,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
