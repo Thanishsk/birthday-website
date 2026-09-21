@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Illustration of a smiling woman in a heart frame">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffd6e7"/>
+      <stop offset="100%" stop-color="#ffc2d1"/>
+    </linearGradient>
+    <linearGradient id="dress" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f45b8d"/>
+      <stop offset="100%" stop-color="#d7265b"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="200" cy="170" r="92" fill="#f7d6c4"/>
+  <path d="M120 120 C 110 70, 150 40, 200 60 C 250 40, 290 70, 280 120 C 270 170, 235 220, 200 250 C 165 220, 130 170, 120 120 Z" fill="#f9c3cf" opacity="0.7"/>
+  <path d="M145 180 C 145 145, 170 125, 200 125 C 230 125, 255 145, 255 180 C 255 220, 230 245, 200 260 C 170 245, 145 220, 145 180 Z" fill="#f7d6c4"/>
+  <path d="M150 168 C 160 120, 180 96, 200 96 C 220 96, 240 120, 250 168" fill="none" stroke="#3a2a33" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="175" cy="175" r="7" fill="#3a2a33"/>
+  <circle cx="225" cy="175" r="7" fill="#3a2a33"/>
+  <path d="M182 205 Q 200 220 218 205" fill="none" stroke="#b75b6a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M110 340 C 140 285, 168 270, 200 270 C 232 270, 260 285, 290 340 L 290 400 L 110 400 Z" fill="url(#dress)"/>
+  <path d="M200 245 L 170 270 L 200 400 L 230 270 Z" fill="#f7d6c4" opacity="0.7"/>
+  <circle cx="200" cy="158" r="110" fill="none" stroke="#ff5c8a" stroke-width="12" opacity="0.7"/>
+</svg>
